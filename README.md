@@ -20,7 +20,7 @@ The project was developed for educational purposes only and therefore has no cla
         * [Running tests](#running-tests)
         * [Running with a WSGI Server](#running-with-a-wsgi-server)
         * [Seeding the application with data](#seeding-the-application-with-data)
-        * [Containerization](#containerization)
+    * [Containerization](#containerization)
         * [Build an image](#build-an-image)
         * [Run a container](#run-a-container)
 
