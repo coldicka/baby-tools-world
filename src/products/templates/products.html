@@ -33,6 +33,13 @@
           <div class="mb-1 text-muted">
             {{product.price}} &euro;
           </div>
+          <div class="mb-1 text-muted">
+            {% for tag in product.tags.all %}
+              <a class="badge bg-primary" href="{% url 'products_by_tag' tag.id %}" style="color: red; display: block;">
+                {{ tag.name }}
+              </a>
+            {% endfor %}
+          </div>
           <div class="mb-2">
             {% if product.total_ratings > 0 %}
               <span title="{{ product.total_ratings }} total rating(s)">

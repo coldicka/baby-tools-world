@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Comment
+from .models import Comment, Tag
 
 
 class CommentForm(forms.ModelForm):
@@ -9,7 +9,7 @@ class CommentForm(forms.ModelForm):
         fields = ["rating", "text", "guest_name", "guest_email"]
         widgets = {
             "rating": forms.NumberInput(attrs={"min": 1, "max": 5}),
-            "text": forms.Textarea(attrs={"rows": 3}),
+            "text": forms.Textarea(attrs={"class": "form-control form-control-sm", "rows": 3}),
         }
 
     def clean(self):
@@ -20,3 +20,12 @@ class CommentForm(forms.ModelForm):
         if not user and not data.get("guest_email"):
             self.add_error("guest_email", "Required for guest.")
         return data
+
+class TagForm(forms.ModelForm):
+    tags = forms.ModelMultipleChoiceField(
+        queryset=Tag.objects.all(), widget=forms.CheckboxSelectMultiple, required=False
+    )
+
+    class Meta:
+        model = Tag
+        fields = "__all__"

@@ -145,6 +145,20 @@
                 <div class="text-danger small mt-1">{{ form.rating.errors.0 }}</div>
               {% endif %}
               <div class="rating-hint">Click a star to set your rating (5 = best).</div>
+            </div> <!-- END - Rating (stars) -->
+
+            <!-- Product Tags -->
+            <div class="mb-3">
+              <div class="d-flex flex-wrap gap-2">Product-Tags</div>
+              {% if product.tags.all %}
+                {% for tag in product.tags.all %}
+                  <a class="badge bg-primary" href="{% url 'products_by_tag' tag.id %}" style="color: red; display: block; margin-right: 0.5rem;">
+                    {{ tag.name }}
+                  </a>
+                {% endfor %}
+              {% else %}
+                 <div class="mb-3 text-muted">no tags available</div>
+              {% endif %}
             </div>
 
             <!-- Text -->

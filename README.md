@@ -6,7 +6,25 @@ The project was developed for educational purposes only and therefore has no cla
 > [!NOTE]
 > This project assumes you already know the python programming language
 
-## Prerequisites
+## Table of contents
+* [Baby Tools World](#baby-tools-world)
+    * [Prerequisites](#Prerequisites)
+    * [Quickstart](#Quickstart)
+    * [Project structure](#project-structure)
+    * [App overview](#app-overview)
+    * [Usage](#usage)
+        * [Configuration](#configuration)
+        * [Running the linting tools](#running-the-linting-tools)
+        * [When to run this](#when-to-run-this)
+        * [Testing](#testing)
+        * [Running tests](#running-tests)
+        * [Running with a WSGI Server](#running-with-a-wsgi-server)
+        * [Seeding the application with data](#seeding-the-application-with-data)
+        * [Containerization](#containerization)
+        * [Build an image](#build-an-image)
+        * [Run a container](#run-a-container)
+
+### Prerequisites
 
 In order to seamlessly interact with the repository and the software it contains you need to following tools preinstalled:
 
@@ -14,7 +32,7 @@ In order to seamlessly interact with the repository and the software it contains
 - OCI-Compliant Container Engine (e.g. podman, docker, etc.)
 - Editor/IDE of your choice (VSC, PyCharm, etc.)
 
-## Quickstart
+### Quickstart
 
 In order to quickly get started with the project follow these steps:
 
@@ -35,7 +53,7 @@ In order to quickly get started with the project follow these steps:
 1. verify the application is running by visiting `localhost:8000`
 1. (optional) create a superuser by running: `python manage.py createsuperuser`
 
-## Project Structure
+### Project Structure
 
 - `.gitlab`: GitLab specific project files
 - `.github`: GitHub specific project files
@@ -51,11 +69,11 @@ The project is modularized into several apps:
 
 Each app has its own `models.py`, `views.py`, `urls.py`, and `admin.py` files to encapsulate its functionality.
 
-## Usage
+### Usage
 
 In this section you can read about the project a bit more in detail.
 
-### Configuration
+#### Configuration
 
 To configure the project, follow these steps:
 
@@ -66,7 +84,7 @@ To configure the project, follow these steps:
     - `ALLOWED_HOSTS`: provide a list of comma-separated values for the allowed host configuration => Defaults to `'localhost, 127.0.0.1, 0.0.0.0'`
     - `DEBUG`: Set to `True` for development or `False` for production. Defaults to `True`
 
-### Running the linting tools
+#### Running the linting tools
 
 > [!tip]
 > In order to run the routines below the required packages must be installed (done after running `pip install -r requirements.txt`).
@@ -90,7 +108,7 @@ In case you forgot it and somehow violated a rule, the CI workflow will fail -> 
 > [!note]
 > If a CI workflow fails, you should check the logs to find out where the workflow failed and what was the reason for this failure.
 
-### Testing
+#### Testing
 
 This project contains tests for the corresponding apps in the respective packages.
 Tests in Django can either be located in a `tests.py` file within a django-app, or you could also have a module named `tests` (essentially a folder with an `__init__.py` file).
@@ -119,7 +137,7 @@ To run the tests with the `django testrunner` you can use the following command:
 
 For more information about testing, refer to the testing documentation in this repository, see [testing documentation](./docs/testing.md)
 
-### Running with a WSGI Server
+#### Running with a WSGI Server
 
 **WSGI** (Web Server Gateway Interface) is a specification that defines a standard interface between web servers and Python web applications or frameworks.
 It acts as a bridge, allowing web servers to communicate with Python applications in a consistent manner.
@@ -137,7 +155,7 @@ the application can handle HTTP requests efficiently and reliably in a scalable 
 
 For more information about WSGI and its configuration, see the [wsgi documentation](./docs/wsgi.md).
 
-### Seeding the application with data
+#### Seeding the application with data
 
 This section will guide you through the process of providing an initial seed to the application.
 
