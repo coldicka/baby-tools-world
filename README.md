@@ -183,6 +183,7 @@ You can build the container image by running the following command in your termi
 # use -t to provide a tag together with the image name
 # -> baby-tools-world is the image name, 'local' is the tag
 docker build -t baby-tools-world:local .
+docker build -t baby-tools-world -f Dockerfile .
 ```
 
 #### Run a container
