@@ -36,36 +36,36 @@ In order to seamlessly interact with the repository and the software it contains
 
 In order to quickly get started with the project follow these steps:
 
-1. clone the repository
-1. nagivate to the repository
-1. (optional) create a virtual environment with `python -m venv my-venv`
-    1. activate the virtual environment:
+* clone the repository
+* nagivate to the repository
+* (optional) create a virtual environment with `python -m venv my-venv`
+    * activate the virtual environment:
         - on Windows run: `my-venv/Scripts/activate`
         - on MacOS/Linux run: `source my-venv/bin/activate`
-1. install the project dependencies with `pip install -r requirements.txt`
-1. configure required application environment variables
+* install the project dependencies with `pip install -r requirements.txt`
+* configure required application environment variables
     - `cp example.env .env`
-1. go to the `src` directory via `cd src`
-1. prepare the database (create and apply migrations)
-    1. `python manage.py makemigrations`
-    1. `python manage.py migrate`
-1. start the application with `python manage.py runserver`
-1. verify the application is running by visiting `localhost:8000`
-1. (optional) create a superuser by running: `python manage.py createsuperuser`
+* go to the `src` directory via `cd src`
+* prepare the database (create and apply migrations)
+    * `python manage.py makemigrations`
+    * `python manage.py migrate`
+* start the application with `python manage.py runserver`
+* verify the application is running by visiting `localhost:8000`
+* (optional) create a superuser by running: `python manage.py createsuperuser`
 
 ### Project Structure
 
-- `.gitlab`: GitLab specific project files
-- `.github`: GitHub specific project files
-- `src`: application source code, containing the django project, apps, and other files
-- `requirements.txt`: the project dependencies
+* `.gitlab`: GitLab specific project files
+* `.github`: GitHub specific project files
+* `src`: application source code, containing the django project, apps, and other files
+* `requirements.txt`: the project dependencies
 
 ### Apps Overview
 
 The project is modularized into several apps:
 
-- `products`: Manages product listings and categories
-- `users`: Handles user authentication and registration.
+* `products`: Manages product listings and categories
+* `users`: Handles user authentication and registration.
 
 Each app has its own `models.py`, `views.py`, `urls.py`, and `admin.py` files to encapsulate its functionality.
 
@@ -77,12 +77,12 @@ In this section you can read about the project a bit more in detail.
 
 To configure the project, follow these steps:
 
-1. Copy the example environment file to the `src` directory: `cp example.env src/.env`.
-    - the file needs to be stored next to the manage.py file in order to function properly.
+* Copy the example environment file to the `src` directory: `cp example.env src/.env`.
+    * the file needs to be stored next to the manage.py file in order to function properly.
     Other locations might also work but there is no guarantuee, and in last consequence you will need to update to project correspondingly.
-2. Open your `src/.env` and set the required environment variables:
-    - `ALLOWED_HOSTS`: provide a list of comma-separated values for the allowed host configuration => Defaults to `'localhost, 127.0.0.1, 0.0.0.0'`
-    - `DEBUG`: Set to `True` for development or `False` for production. Defaults to `True`
+* Open your `src/.env` and set the required environment variables:
+    * `ALLOWED_HOSTS`: provide a list of comma-separated values for the allowed host configuration => Defaults to `'localhost, 127.0.0.1, 0.0.0.0'`
+    * `DEBUG`: Set to `True` for development or `False` for production. Defaults to `True`
 
 #### Running the linting tools
 
