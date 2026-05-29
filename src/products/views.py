@@ -64,7 +64,6 @@ def product_detail(request, category_slug, pk):
             request.session["just_posted"] = True  # Store the flag in the session to prevent duplicates
             return redirect("product_detail", category_slug=category_slug, pk=product.pk)
     else:
-        # Pre-fill form for authenticated user with existing comment (if any)
         if not request.session.pop("just_posted", False):
             initial = {}
             if request.user.is_authenticated:
@@ -74,6 +73,7 @@ def product_detail(request, category_slug, pk):
             form = CommentForm(initial=initial)
         else:
             form = CommentForm()
+
     return render(
         request,
         "product.html",

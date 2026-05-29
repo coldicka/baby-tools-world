@@ -22,10 +22,6 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    list_display = ("name", "created_at")
+    list_display = ("name", "created_at", "updated_at", "description")
+    list_filter = ("name", "created_at")
     search_fields = ("name", "created_at")
-
-@admin.register(Tag)
-class TagAdmin(admin.ModelAdmin):
-    list_display = ("name", "description", "created_at")
-    list_filter = ("name", "description")

@@ -35,7 +35,7 @@
           </div>
           <div class="mb-1 text-muted">
             {% for tag in product.tags.all %}
-              <a class="badge bg-primary" href="{% url 'products_by_tag' tag.id %}" style="color: red; display: block;">
+              <a class="badge bg-primary text-decoration-none" href="{% url 'products_by_tag' tag.id %}">
                 {{ tag.name }}
               </a>
             {% endfor %}
