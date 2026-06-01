@@ -188,6 +188,14 @@ docker build -t baby-tools-world -f Dockerfile .
 
 #### Run a container
 
+> [!TIP]
+> If you're using Windows, you'll probably have a problem with the file extension. 
+> Windows-based text editors put special characters at the end of lines to denote a line return or newline. Normally harmless, 
+> some applications on a Linux server can not understand these characters and can cause the service to not respond correctly.
+>
+> See this blog `https://blog.programster.org/fixing-docker-volume-windows-line-endings-on-bash-scripts`
+> `https://docs.github.com/en/get-started/git-basics/configuring-git-to-handle-line-endings`
+
 To start a container based on the image, use the following command in your terminal:
 
 ```bash

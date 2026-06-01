@@ -19,4 +19,4 @@ RUN pip install -r requirements.txt \
 WORKDIR /app/src
 
 EXPOSE $APP_PORT
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT [ "/bin/sh", "-c", "/app/entrypoint.sh" ]
