@@ -7,22 +7,23 @@ The project was developed for educational purposes only and therefore has no cla
 > This project assumes you already know the python programming language
 
 ## Table of contents
-* [Baby Tools World](#baby-tools-world)
-    * [Prerequisites](#Prerequisites)
-    * [Quickstart](#Quickstart)
-    * [Project structure](#project-structure)
-    * [App overview](#app-overview)
-    * [Usage](#usage)
-        * [Configuration](#configuration)
-        * [Running the linting tools](#running-the-linting-tools)
-        * [When to run this](#when-to-run-this)
-        * [Testing](#testing)
-        * [Running tests](#running-tests)
-        * [Running with a WSGI Server](#running-with-a-wsgi-server)
-        * [Seeding the application with data](#seeding-the-application-with-data)
-    * [Containerization](#containerization)
-        * [Build an image](#build-an-image)
-        * [Run a container](#run-a-container)
+
+- [Baby Tools World](#baby-tools-world)
+    - [Prerequisites](#Prerequisites)
+    - [Quickstart](#Quickstart)
+    - [Project structure](#project-structure)
+    - [App overview](#app-overview)
+    - [Usage](#usage)
+        - [Configuration](#configuration)
+        - [Running the linting tools](#running-the-linting-tools)
+        - [When to run this](#when-to-run-this)
+        - [Testing](#testing)
+        - [Running tests](#running-tests)
+        - [Running with a WSGI Server](#running-with-a-wsgi-server)
+        - [Seeding the application with data](#seeding-the-application-with-data)
+    - [Containerization](#containerization)
+        - [Build an image](#build-an-image)
+        - [Run a container](#run-a-container)
 
 ### Prerequisites
 
@@ -36,36 +37,36 @@ In order to seamlessly interact with the repository and the software it contains
 
 In order to quickly get started with the project follow these steps:
 
-* clone the repository
-* nagivate to the repository
-* (optional) create a virtual environment with `python -m venv my-venv`
-    * activate the virtual environment:
+- clone the repository
+- nagivate to the repository
+- (optional) create a virtual environment with `python -m venv my-venv`
+    - activate the virtual environment:
         - on Windows run: `my-venv/Scripts/activate`
         - on MacOS/Linux run: `source my-venv/bin/activate`
-* install the project dependencies with `pip install -r requirements.txt`
-* configure required application environment variables
+- install the project dependencies with `pip install -r requirements.txt`
+- configure required application environment variables
     - `cp example.env .env`
-* go to the `src` directory via `cd src`
-* prepare the database (create and apply migrations)
-    * `python manage.py makemigrations`
-    * `python manage.py migrate`
-* start the application with `python manage.py runserver`
-* verify the application is running by visiting `localhost:8000`
-* (optional) create a superuser by running: `python manage.py createsuperuser`
+- go to the `src` directory via `cd src`
+- prepare the database (create and apply migrations)
+    - `python manage.py makemigrations`
+    - `python manage.py migrate`
+- start the application with `python manage.py runserver`
+- verify the application is running by visiting `localhost:8000`
+- (optional) create a superuser by running: `python manage.py createsuperuser`
 
 ### Project Structure
 
-* `.gitlab`: GitLab specific project files
-* `.github`: GitHub specific project files
-* `src`: application source code, containing the django project, apps, and other files
-* `requirements.txt`: the project dependencies
+- `.gitlab`: GitLab specific project files
+- `.github`: GitHub specific project files
+- `src`: application source code, containing the django project, apps, and other files
+- `requirements.txt`: the project dependencies
 
 ### Apps Overview
 
 The project is modularized into several apps:
 
-* `products`: Manages product listings and categories
-* `users`: Handles user authentication and registration.
+- `products`: Manages product listings and categories
+- `users`: Handles user authentication and registration.
 
 Each app has its own `models.py`, `views.py`, `urls.py`, and `admin.py` files to encapsulate its functionality.
 
@@ -77,12 +78,12 @@ In this section you can read about the project a bit more in detail.
 
 To configure the project, follow these steps:
 
-* Copy the example environment file to the `src` directory: `cp example.env src/.env`.
-    * the file needs to be stored next to the manage.py file in order to function properly.
+- Copy the example environment file to the `src` directory: `cp example.env src/.env`.
+    - the file needs to be stored next to the manage.py file in order to function properly.
     Other locations might also work but there is no guarantuee, and in last consequence you will need to update to project correspondingly.
-* Open your `src/.env` and set the required environment variables:
-    * `ALLOWED_HOSTS`: provide a list of comma-separated values for the allowed host configuration => Defaults to `'localhost, 127.0.0.1, 0.0.0.0'`
-    * `DEBUG`: Set to `True` for development or `False` for production. Defaults to `True`
+- Open your `src/.env` and set the required environment variables:
+    - `ALLOWED_HOSTS`: provide a list of comma-separated values for the allowed host configuration => Defaults to `'localhost, 127.0.0.1, 0.0.0.0'`
+    - `DEBUG`: Set to `True` for development or `False` for production. Defaults to `True`
 
 #### Running the linting tools
 
