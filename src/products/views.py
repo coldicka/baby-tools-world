@@ -89,5 +89,4 @@ def products_by_tag(request, tag_id):
         .prefetch_related("tags")
         .annotate(avg_rating=Avg("comments__rating"), total_ratings=Count("comments"))
     )
-
     return render(request, "products.html", {"categories": categories, "products": products})

@@ -1,5 +1,4 @@
 from decimal import Decimal
-# from datetime import datetime
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
@@ -34,7 +33,7 @@ class Tag(models.Model):
         return self.name
 
     class Meta:
-        ordering = ['name']
+        ordering = ["name"]
         verbose_name_plural = "Tags"
 
 
