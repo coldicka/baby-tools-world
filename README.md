@@ -8,22 +8,22 @@ The project was developed for educational purposes only and therefore has no cla
 
 ## Table of contents
 
-- [Baby Tools World](#baby-tools-world)
-    - [Prerequisites](#Prerequisites)
-    - [Quickstart](#Quickstart)
-    - [Project structure](#project-structure)
-    - [App overview](#app-overview)
-    - [Usage](#usage)
-        - [Configuration](#configuration)
-        - [Running the linting tools](#running-the-linting-tools)
-        - [When to run this](#when-to-run-this)
-        - [Testing](#testing)
-        - [Running tests](#running-tests)
-        - [Running with a WSGI Server](#running-with-a-wsgi-server)
-        - [Seeding the application with data](#seeding-the-application-with-data)
-    - [Containerization](#containerization)
-        - [Build an image](#build-an-image)
-        - [Run a container](#run-a-container)
+* [Baby Tools World](#baby-tools-world)
+  * [Prerequisites](#Prerequisites)
+  * [Quickstart](#Quickstart)
+  * [Project structure](#project-structure)
+  * [App overview](#app-overview)
+  * [Usage](#usage)
+    * [Configuration](#configuration)
+    * [Running the linting tools](#running-the-linting-tools)
+    * [When to run this](#when-to-run-this)
+    * [Testing](#testing)
+    * [Running tests](#running-tests)
+    * [Running with a WSGI Server](#running-with-a-wsgi-server)
+    * [Seeding the application with data](#seeding-the-application-with-data)
+  * [Containerization](#containerization)
+      * [Build an image](#build-an-image)
+      * [Run a container][#run-a-container]
 
 ### Prerequisites
 
@@ -208,3 +208,6 @@ In order to overwrite predefined environment configuration in the app, you can s
 ```bash
 docker run --rm -it -p 8000:8000 --env-file .env baby-tools-world:local
 ```
+
+
+[def]: #run-a-container
