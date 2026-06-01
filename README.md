@@ -12,7 +12,7 @@ The project was developed for educational purposes only and therefore has no cla
   * [Prerequisites](#prerequisites)
   * [Quickstart](#quickstart)
   * [Project structure](#project-structure)
-  * [App overview](#app-overview)
+  * [Apps Overview](#apps-overview)
   * [Usage](#usage)
     * [Configuration](#configuration)
     * [Running the linting tools](#running-the-linting-tools)
@@ -134,7 +134,7 @@ baby-tool-world/src/products
 
 To run the tests with the `django testrunner` you can use the following command:
 
-- `python manage.py test`, you need to run this in the folder where `manage.py` lives -> `src`
+* `python manage.py test`, you need to run this in the folder where `manage.py` lives -> `src`
 
 For more information about testing, refer to the testing documentation in this repository, see [testing documentation](./docs/testing.md)
 
