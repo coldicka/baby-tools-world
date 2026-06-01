@@ -1,5 +1,4 @@
 from django import forms
-
 from .models import Comment, Tag
 
 
@@ -21,7 +20,8 @@ class CommentForm(forms.ModelForm):
         if not user and not data.get("guest_email"):
             self.add_error("guest_email", "Required for guest.")
         return data
-    
+
+
 # Form for the Tag model to be used in the ProductAdmin
 class TagForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(

@@ -1,5 +1,3 @@
-from urllib import request
-
 from django.contrib import messages
 from django.db.models import Avg, Count
 from django.shortcuts import get_object_or_404, redirect, render
@@ -81,6 +79,7 @@ def product_detail(request, category_slug, pk):
         "product.html",
         {"product": product, "comments": comments, "related_products": related_products, "form": form},
     )
+
 
 def products_by_tag(request, tag_id):
     categories = Category.objects.all()

@@ -21,6 +21,7 @@ class Category(models.Model):
         ordering = ["name"]
         verbose_name_plural = "Categories"
 
+
 # NEW model: Tag model with a ManyToMany relationship to Product.
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True, null=False, blank=False)
@@ -30,11 +31,12 @@ class Tag(models.Model):
     description = models.TextField(max_length=200, null=True, blank=True) # extra field for tag description of a tag
 
     def __str__(self):
-        return self.name 
-    
+        return self.name
+
     class Meta:
         ordering = ['name']
         verbose_name_plural = "Tags"
+
 
 # NEW model: Product model with a new Comment model linked to it, and a ManyToMany relationship with Tag.
 class Product(models.Model):

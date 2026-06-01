@@ -9,8 +9,8 @@ The project was developed for educational purposes only and therefore has no cla
 ## Table of contents
 
 * [Baby Tools World](#baby-tools-world)
-  * [Prerequisites](#Prerequisites)
-  * [Quickstart](#Quickstart)
+  * [Prerequisites](#prerequisites)
+  * [Quickstart](#quickstart)
   * [Project structure](#project-structure)
   * [App overview](#app-overview)
   * [Usage](#usage)
@@ -22,51 +22,51 @@ The project was developed for educational purposes only and therefore has no cla
     * [Running with a WSGI Server](#running-with-a-wsgi-server)
     * [Seeding the application with data](#seeding-the-application-with-data)
   * [Containerization](#containerization)
-      * [Build an image](#build-an-image)
-      * [Run a container][#run-a-container]
+    * [Build an image](#build-an-image)
+    * [Run a container](#run-a-container)
 
 ### Prerequisites
 
 In order to seamlessly interact with the repository and the software it contains you need to following tools preinstalled:
 
-- Python Interpreter
-- OCI-Compliant Container Engine (e.g. podman, docker, etc.)
-- Editor/IDE of your choice (VSC, PyCharm, etc.)
+* Python Interpreter
+* OCI-Compliant Container Engine (e.g. podman, docker, etc.)
+* Editor/IDE of your choice (VSC, PyCharm, etc.)
 
 ### Quickstart
 
 In order to quickly get started with the project follow these steps:
 
-- clone the repository
-- nagivate to the repository
-- (optional) create a virtual environment with `python -m venv my-venv`
-    - activate the virtual environment:
-        - on Windows run: `my-venv/Scripts/activate`
-        - on MacOS/Linux run: `source my-venv/bin/activate`
-- install the project dependencies with `pip install -r requirements.txt`
-- configure required application environment variables
-    - `cp example.env .env`
-- go to the `src` directory via `cd src`
-- prepare the database (create and apply migrations)
-    - `python manage.py makemigrations`
-    - `python manage.py migrate`
-- start the application with `python manage.py runserver`
-- verify the application is running by visiting `localhost:8000`
-- (optional) create a superuser by running: `python manage.py createsuperuser`
+* clone the repository
+* nagivate to the repository
+* (optional) create a virtual environment with `python -m venv my-venv`
+  * activate the virtual environment:
+    * on Windows run: `my-venv/Scripts/activate`
+    * on MacOS/Linux run: `source my-venv/bin/activate`
+* install the project dependencies with `pip install -r requirements.txt`
+* configure required application environment variables
+  * `cp example.env .env`
+* go to the `src` directory via `cd src`
+* prepare the database (create and apply migrations)
+  * `python manage.py makemigrations`
+  * `python manage.py migrate`
+* start the application with `python manage.py runserver`
+* verify the application is running by visiting `localhost:8000`
+* (optional) create a superuser by running: `python manage.py createsuperuser`
 
 ### Project Structure
 
-- `.gitlab`: GitLab specific project files
-- `.github`: GitHub specific project files
-- `src`: application source code, containing the django project, apps, and other files
-- `requirements.txt`: the project dependencies
+* `.gitlab`: GitLab specific project files
+* `.github`: GitHub specific project files
+* `src`: application source code, containing the django project, apps, and other files
+* `requirements.txt`: the project dependencies
 
 ### Apps Overview
 
 The project is modularized into several apps:
 
-- `products`: Manages product listings and categories
-- `users`: Handles user authentication and registration.
+* `products`: Manages product listings and categories
+* `users`: Handles user authentication and registration.
 
 Each app has its own `models.py`, `views.py`, `urls.py`, and `admin.py` files to encapsulate its functionality.
 
@@ -78,12 +78,12 @@ In this section you can read about the project a bit more in detail.
 
 To configure the project, follow these steps:
 
-- Copy the example environment file to the `src` directory: `cp example.env src/.env`.
-    - the file needs to be stored next to the manage.py file in order to function properly.
+* Copy the example environment file to the `src` directory: `cp example.env src/.env`.
+  * the file needs to be stored next to the manage.py file in order to function properly.
     Other locations might also work but there is no guarantuee, and in last consequence you will need to update to project correspondingly.
-- Open your `src/.env` and set the required environment variables:
-    - `ALLOWED_HOSTS`: provide a list of comma-separated values for the allowed host configuration => Defaults to `'localhost, 127.0.0.1, 0.0.0.0'`
-    - `DEBUG`: Set to `True` for development or `False` for production. Defaults to `True`
+* Open your `src/.env` and set the required environment variables:
+  * `ALLOWED_HOSTS`: provide a list of comma-separated values for the allowed host configuration => Defaults to `'localhost, 127.0.0.1, 0.0.0.0'`
+  * `DEBUG`: Set to `True` for development or `False` for production. Defaults to `True`
 
 #### Running the linting tools
 
@@ -190,8 +190,8 @@ docker build -t baby-tools-world -f Dockerfile .
 #### Run a container
 
 > [!TIP]
-> If you're using Windows, you'll probably have a problem with the file extension. 
-> Windows-based text editors put special characters at the end of lines to denote a line return or newline. Normally harmless, 
+> If you're using Windows, you'll probably have a problem with the file extension.
+> Windows-based text editors put special characters at the end of lines to denote a line return or newline. Normally harmless,
 > some applications on a Linux server can not understand these characters and can cause the service to not respond correctly.
 >
 > See this blog `https://blog.programster.org/fixing-docker-volume-windows-line-endings-on-bash-scripts`
@@ -208,6 +208,3 @@ In order to overwrite predefined environment configuration in the app, you can s
 ```bash
 docker run --rm -it -p 8000:8000 --env-file .env baby-tools-world:local
 ```
-
-
-[def]: #run-a-container
