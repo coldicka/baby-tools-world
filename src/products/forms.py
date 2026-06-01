@@ -12,6 +12,7 @@ class CommentForm(forms.ModelForm):
             "text": forms.Textarea(attrs={"class": "form-control form-control-sm", "rows": 3}),
         }
 
+    # Custom validation to ensure guest_name and guest_email are provided for guest users
     def clean(self):
         data = super().clean()
         user = self.initial.get("user")
@@ -20,7 +21,8 @@ class CommentForm(forms.ModelForm):
         if not user and not data.get("guest_email"):
             self.add_error("guest_email", "Required for guest.")
         return data
-
+    
+# Form for the Tag model to be used in the ProductAdmin
 class TagForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
         queryset=Tag.objects.all(), widget=forms.CheckboxSelectMultiple, required=False
