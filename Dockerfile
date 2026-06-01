@@ -14,9 +14,10 @@ COPY . ${_WORKDIR}
 # Install package dependencies for app
 RUN pip install -r requirements.txt \
     && chmod +x /app/entrypoint.sh
+RUN sed -i 's/\r$//' /app/entrypoint.sh
 
 # Switch WORKDIR to src/ in order to execute entrypoint commands from there
 WORKDIR /app/src
 
 EXPOSE $APP_PORT
-ENTRYPOINT [ "/bin/sh", "-c", "/app/entrypoint.sh" ]
+ENTRYPOINT [ "/app/entrypoint.sh" ]
