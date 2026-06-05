@@ -24,6 +24,7 @@ The project was developed for educational purposes only and therefore has no cla
   * [Containerization](#containerization)
     * [Build an image](#build-an-image)
     * [Run a container](#run-a-container)
+    * [Commands in the Docker container](#commands-in-the-docker-container)
 
 ### Prerequisites
 
@@ -184,7 +185,6 @@ You can build the container image by running the following command in your termi
 # use -t to provide a tag together with the image name
 # -> baby-tools-world is the image name, 'local' is the tag
 docker build -t baby-tools-world:local .
-docker build -t baby-tools-world -f Dockerfile .
 ```
 
 #### Run a container
@@ -208,3 +208,15 @@ In order to overwrite predefined environment configuration in the app, you can s
 ```bash
 docker run --rm -it -p 8000:8000 --env-file .env baby-tools-world:local
 ```
+
+> [!TIP]
+> If you start your container on the VM with the -it flags, the container may shut down when you close your terminal. 
+> It will also be deleted once the container stops (this is what the --rm flag does). This is fine for testing. If the container needs 
+> to be permanently available, start it exclusively with the -d flag. Then the container will definitely stay online as long as no errors > occur. Example: `docker run -d --name your-container-name -p 8000:8000 local`
+
+#### Commands in the Docker container
+
+1. open another terminal
+2. List all open containers and copy the desired <container-id> `docker ps`
+3. Opening up the bash shell to run a command inside an already running container `docker exec -t <container-id> bash`
+4. Now you can run all commands within this running container 
