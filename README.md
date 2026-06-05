@@ -210,13 +210,15 @@ docker run --rm -it -p 8000:8000 --env-file .env baby-tools-world:local
 ```
 
 > [!TIP]
-> If you start your container on the VM with the -it flags, the container may shut down when you close your terminal. 
-> It will also be deleted once the container stops (this is what the --rm flag does). This is fine for testing. If the container needs 
-> to be permanently available, start it exclusively with the -d flag. Then the container will definitely stay online as long as no errors > occur. Example: `docker run -d --name your-container-name -p 8000:8000 local`
+> If you start your container on the VM with the -it flags, the container may shut down when you close your terminal.
+> It will also be deleted once the container stops (this is what the --rm flag does). This is fine for testing.
+> If the container needs to be permanently available, start it exclusively with the -d flag.
+> Then the container will definitely stay online as long as no errors occur.
+> Example: `docker run -d --name your-container-name -p 8000:8000 local`
 
 #### Commands in the Docker container
 
 1. open another terminal
 2. List all open containers and copy the desired <container-id> `docker ps`
 3. Opening up the bash shell to run a command inside an already running container `docker exec -t <container-id> bash`
-4. Now you can run all commands within this running container 
+4. Now you can run all commands within this running container
