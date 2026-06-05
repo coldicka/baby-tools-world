@@ -219,6 +219,6 @@ docker run --rm -it -p 8000:8000 --env-file .env baby-tools-world:local
 #### Commands in the Docker container
 
 1. open another terminal
-2. List all open containers and copy the desired <container-id> `docker ps`
-3. Opening up the bash shell to run a command inside an already running container `docker exec -t <container-id> bash`
+2. List all open containers and copy the desired CONTAINER_ID `docker ps`
+3. Opening up the bash shell to run a command inside an already running container `docker exec -t [container-id] bash`
 4. Now you can run all commands within this running container
