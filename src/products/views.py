@@ -8,8 +8,10 @@ from .models import Category, Comment, Product
 
 def product_list(request, category_slug=None):
     categories = Category.objects.all()
-    products = Product.objects.select_related("category").annotate(
-        avg_rating=Avg("comments__rating"), total_ratings=Count("comments")
+    products = (
+        Product.objects.select_related("category")
+        .prefetch_related("tags")
+        .annotate(avg_rating=Avg("comments__rating"), total_ratings=Count("comments"))
     )
     if category_slug:
         products = products.filter(category__slug=category_slug)
@@ -57,18 +59,34 @@ def product_detail(request, category_slug, pk):
                 comment.save()
                 messages.success(request, "Thank you for your rating.")
 
+            request.session["just_posted"] = True  # Store the flag in the session to prevent duplicates
             return redirect("product_detail", category_slug=category_slug, pk=product.pk)
     else:
         # Pre-fill form for authenticated user with existing comment (if any)
-        initial = {}
-        if request.user.is_authenticated:
-            existing = product.comments.filter(user=request.user).first()
-            if existing:
-                initial = {"rating": existing.rating, "text": existing.text}
-        form = CommentForm(initial=initial)
+        # Ensure that the comment field is empty when the page reloads
+        if not request.session.pop("just_posted", False):
+            initial = {}
+            if request.user.is_authenticated:
+                existing = product.comments.filter(user=request.user).first()
+                if existing:
+                    initial = {"rating": existing.rating, "text": existing.text}
+            form = CommentForm(initial=initial)
+        else:
+            form = CommentForm()
 
     return render(
         request,
         "product.html",
         {"product": product, "comments": comments, "related_products": related_products, "form": form},
     )
+
+
+def products_by_tag(request, tag_id):
+    categories = Category.objects.all()
+    products = (
+        Product.objects.filter(tags__id=tag_id)
+        .select_related("category")
+        .prefetch_related("tags")
+        .annotate(avg_rating=Avg("comments__rating"), total_ratings=Count("comments"))
+    )
+    return render(request, "products.html", {"categories": categories, "products": products})
